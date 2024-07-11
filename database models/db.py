@@ -33,3 +33,6 @@ class Exercise(db.Model):
     reps = db.Column(db.Integer, nullable=False)
     # Weight used in the exercise
     weight = db.Column(db.Integer, nullable=False)
+
+# Define the Workout model
+class Workout(db.Model):
