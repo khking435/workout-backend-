@@ -51,3 +51,11 @@ class Workout(db.Model):
 
 # Define the User model
 class User(db.Model):
+    # Primary key column
+    id = db.Column(db.Integer, primary_key=True, nullable=False)  
+    # Username
+    username = db.Column(db.String, nullable=False)  
+    # Email address
+    email = db.Column(db.String, nullable=False)  
+    # Password
+    password = db.Column(db.String, nullable=False)  
