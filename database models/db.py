@@ -36,3 +36,15 @@ class Exercise(db.Model):
 
 # Define the Workout model
 class Workout(db.Model):
+    # Primary key column
+    id = db.Column(db.Integer, primary_key=True, nullable=False)  
+    # Name of the workout
+    name = db.Column(db.String, nullable=False)  
+    # Date of the workout
+    date = db.Column(db.Date, nullable=False)  
+    # Duration of the workout in minutes
+    duration = db.Column(db.Integer, nullable=False)  
+    # Type of workout (e.g., cardio, strength)
+    type = db.Column(db.String, nullable=False)  
+    # One-to-many relationship with Exercise
+    exercises = db.relationship('Exercise', backref='workout', lazy=True)  
