@@ -21,3 +21,15 @@ migrate = Migrate(app, db)
 
 # Define the Exercise model
 class Exercise(db.Model):
+    # Primary key column
+    id = db.Column(db.Integer, primary_key=True, nullable=False)
+    # Foreign key to the Workout model
+    workout_id = db.Column(db.Integer, db.ForeignKey('workout.id'), nullable=False)
+    # Name of the exercise
+    name = db.Column(db.String, nullable=False)
+    # Number of sets
+    sets = db.Column(db.Integer, nullable=False)
+    # Number of repetitions
+    reps = db.Column(db.Integer, nullable=False)
+    # Weight used in the exercise
+    weight = db.Column(db.Integer, nullable=False)
