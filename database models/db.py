@@ -48,3 +48,6 @@ class Workout(db.Model):
     type = db.Column(db.String, nullable=False)  
     # One-to-many relationship with Exercise
     exercises = db.relationship('Exercise', backref='workout', lazy=True)  
+
+# Define the User model
+class User(db.Model):
