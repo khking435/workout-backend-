@@ -1,5 +1,5 @@
 
-from app.models import Exercise
+from models import Exercise
 from app.utils.database import db
 
 class ExerciseService:

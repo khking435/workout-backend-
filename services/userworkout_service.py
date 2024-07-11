@@ -1,6 +1,6 @@
 # workout_tracker/app/services/userworkout_service.py
 
-from app.models import UserWorkout
+from models import UserWorkout
 from app.utils.database import db
 
 class UserWorkoutService:
