@@ -62,3 +62,9 @@ class User(db.Model):
 
 # Define the UserWorkout model
 class UserWorkout(db.Model):
+     # Primary key column
+    id = db.Column(db.Integer, primary_key=True, nullable=False)  
+    # Foreign key to the User model
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)  
+    # Foreign key to the Workout model
+    workout_id = db.Column(db.Integer, db.ForeignKey('workout.id'), nullable=False)  
