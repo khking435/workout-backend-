@@ -59,3 +59,6 @@ class User(db.Model):
     email = db.Column(db.String, nullable=False)  
     # Password
     password = db.Column(db.String, nullable=False)  
+
+# Define the UserWorkout model
+class UserWorkout(db.Model):
