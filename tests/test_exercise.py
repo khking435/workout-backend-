@@ -1,8 +1,8 @@
 # tests/test_exercise.py
 
 import pytest
-from app.models import Exercise
-from app.services.exercise_service.py import ExerciseService
+from models import Exercise
+from services.exercise_service import ExerciseService
 
 def test_create_exercise(session):
     data = {'workout_id': 1, 'name': 'Squat', 'sets': 3, 'reps': 10, 'weight': 100}
