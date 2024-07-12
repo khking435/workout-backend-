@@ -1,30 +1,21 @@
-# Import the Flask class to create a Flask application
-from flask import Flask
-
 # Import SQLAlchemy for database handling
 from flask_sqlalchemy import SQLAlchemy
 
-# Import Migrate for handling database migrations
-from flask_migrate import Migrate
+# Importing MetaData
+from sqlalchemy import MetaData
 
- # Create an instance of the Flask class
-app = Flask(__name__) 
+metadata = MetaData()
 
-# Set the URI for the database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///workout.db'  
-
-# Create a SQLAlchemy object and link it to the Flask app
-db = SQLAlchemy(app)  
-
-# Create a Migrate object to handle migrations
-migrate = Migrate(app, db)  
+# Create a SQLAlchemy object
+db = SQLAlchemy(metadata=metadata)
 
 # Define the Exercise model
 class Exercise(db.Model):
+    __tablename__ = "exercise"
     # Primary key column
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     # Foreign key to the Workout model
-    workout_id = db.Column(db.Integer, db.ForeignKey('workout.id'), nullable=False)
+    workout_id = db.Column(db.Integer, db.ForeignKey('Workout.id'), nullable=False)
     # Name of the exercise
     name = db.Column(db.String, nullable=False)
     # Number of sets
@@ -36,6 +27,7 @@ class Exercise(db.Model):
 
 # Define the Workout model
 class Workout(db.Model):
+    __tablename__ = "Workout"
     # Primary key column
     id = db.Column(db.Integer, primary_key=True, nullable=False)  
     # Name of the workout
@@ -51,6 +43,7 @@ class Workout(db.Model):
 
 # Define the User model
 class User(db.Model):
+    __tablename__ = "User"
     # Primary key column
     id = db.Column(db.Integer, primary_key=True, nullable=False)  
     # Username
@@ -62,9 +55,10 @@ class User(db.Model):
 
 # Define the UserWorkout model
 class UserWorkout(db.Model):
-     # Primary key column
+    __tablename__ = "UserWorkout"
+    # Primary key column
     id = db.Column(db.Integer, primary_key=True, nullable=False)  
     # Foreign key to the User model
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)  
+    user_id = db.Column(db.Integer, db.ForeignKey('User.id'), nullable=False)  
     # Foreign key to the Workout model
-    workout_id = db.Column(db.Integer, db.ForeignKey('workout.id'), nullable=False)  
+    workout_id = db.Column(db.Integer, db.ForeignKey('Workout.id'), nullable=False)  
