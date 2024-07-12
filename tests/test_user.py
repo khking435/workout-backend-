@@ -1,5 +1,3 @@
-# tests/test_user.py
-
 import pytest
 from models import User
 from services.user_service import UserService

@@ -1,5 +1,3 @@
-# tests/test_exercise.py
-
 import pytest
 from models import Exercise
 from services.exercise_service import ExerciseService

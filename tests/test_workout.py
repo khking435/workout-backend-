@@ -1,5 +1,3 @@
-# tests/test_workout.py
-
 import pytest
 from models import Workout
 from services.workout_service import WorkoutService
