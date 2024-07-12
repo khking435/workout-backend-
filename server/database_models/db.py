@@ -17,7 +17,7 @@ class Exercise(db.Model):
     # Foreign key to the Workout model
     workout_id = db.Column(db.Integer, db.ForeignKey('Workout.id'), nullable=False)
     # Name of the exercise
-    name = db.Column(db.String, nullable=False)
+    name = db.Column(db.String(100), nullable=False)
     # Number of sets
     sets = db.Column(db.Integer, nullable=False)
     # Number of repetitions
@@ -25,40 +25,52 @@ class Exercise(db.Model):
     # Weight used in the exercise
     weight = db.Column(db.Integer, nullable=False)
 
+    def __repr__(self):
+        return f"<Exercise {self.id}: {self.name}, Workout ID: {self.workout_id}>"
+
 # Define the Workout model
 class Workout(db.Model):
     __tablename__ = "Workout"
     # Primary key column
-    id = db.Column(db.Integer, primary_key=True, nullable=False)  
+    id = db.Column(db.Integer, primary_key=True, nullable=False)
     # Name of the workout
-    name = db.Column(db.String, nullable=False)  
+    name = db.Column(db.String(100), nullable=False)
     # Date of the workout
-    date = db.Column(db.Date, nullable=False)  
+    date = db.Column(db.Date, nullable=False)
     # Duration of the workout in minutes
-    duration = db.Column(db.Integer, nullable=False)  
+    duration = db.Column(db.Integer, nullable=False)
     # Type of workout (e.g., cardio, strength)
-    type = db.Column(db.String, nullable=False)  
+    type = db.Column(db.String(50), nullable=False)
     # One-to-many relationship with Exercise
-    exercises = db.relationship('Exercise', backref='workout', lazy=True)  
+    exercises = db.relationship('Exercise', backref='workout', lazy=True)
+
+    def __repr__(self):
+        return f"<Workout {self.id}: {self.name}>"
 
 # Define the User model
 class User(db.Model):
     __tablename__ = "User"
     # Primary key column
-    id = db.Column(db.Integer, primary_key=True, nullable=False)  
+    id = db.Column(db.Integer, primary_key=True, nullable=False)
     # Username
-    username = db.Column(db.String, nullable=False)  
+    username = db.Column(db.String(80), nullable=False)
     # Email address
-    email = db.Column(db.String, nullable=False)  
+    email = db.Column(db.String(120), nullable=False)
     # Password
-    password = db.Column(db.String, nullable=False)  
+    password = db.Column(db.String(80), nullable=False)
+
+    def __repr__(self):
+        return f"<User {self.id}: {self.username}>"
 
 # Define the UserWorkout model
 class UserWorkout(db.Model):
     __tablename__ = "UserWorkout"
     # Primary key column
-    id = db.Column(db.Integer, primary_key=True, nullable=False)  
+    id = db.Column(db.Integer, primary_key=True, nullable=False)
     # Foreign key to the User model
-    user_id = db.Column(db.Integer, db.ForeignKey('User.id'), nullable=False)  
+    user_id = db.Column(db.Integer, db.ForeignKey('User.id'), nullable=False)
     # Foreign key to the Workout model
-    workout_id = db.Column(db.Integer, db.ForeignKey('Workout.id'), nullable=False)  
+    workout_id = db.Column(db.Integer, db.ForeignKey('Workout.id'), nullable=False)
+
+    def __repr__(self):
+        return f"<UserWorkout {self.id}: User ID {self.user_id}, Workout ID {self.workout_id}>"
