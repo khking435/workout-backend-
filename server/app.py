@@ -38,6 +38,10 @@ db.init_app(app)
 # Debug print statement after initializing the app with the db
 #print("App initialized with the db")
 
+@app.shell_context_processor
+def make_shell_context():
+    return {'db': db, 'User': User, 'Workout': Workout, 'Exercise': Exercise, 'UserWorkout': UserWorkout}
+
 @app.route('/')
 def fit_fusion():
     return 'Hello, Fitness World!'

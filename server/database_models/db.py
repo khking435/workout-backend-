@@ -4,6 +4,9 @@ from flask_sqlalchemy import SQLAlchemy
 # Importing MetaData
 from sqlalchemy import MetaData
 
+#importing Date
+from datetime import date
+
 metadata = MetaData()
 
 # Create a SQLAlchemy object
