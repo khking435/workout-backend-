@@ -173,22 +173,16 @@ def create_userworkout():
 
 
 
+@app.route('/userworkouts/<int:userworkout_id>', methods=['DELETE'])
+def delete_userworkout(userworkout_id):
+    """Route to delete a userworkout"""
+    userworkout = UserWorkout.query.get(userworkout_id)
+    if not userworkout:
+        return jsonify({'error': 'UserWorkout not found'}), 404
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    db.session.delete(userworkout)
+    db.session.commit()
+    return jsonify({'message': 'UserWorkout deleted successfully'}), 200
 
 
 # Code to print all registered routes
