@@ -38,22 +38,18 @@ db.init_app(app)
 # Debug print statement after initializing the app with the db
 #print("App initialized with the db")
 
-
 @app.route('/')
-def fit_fusion():
+def index():
+    """Route to welcome message"""
     return 'Hello, Fitness World!'
 
-@app.route('/Users')
-def all_Users():
-    user = User.query.all()  # Changed 'User' to 'users' here
-    response_body = "<h1>List of all users</h1>"
-
-    for user in user:
-        response_body += f"<p>{user.username}</p>"
-
-    response = make_response(response_body, 200)
-   
-    return response
+# Routes for Users
+@app.route('/users', methods=['GET'])
+def get_all_users():
+    """Route to get all users"""
+    users = User.query.all()
+    users_list = [{'id': user.id, 'username': user.username, 'email': user.email} for user in users]
+    return jsonify(users_list), 200
 
 
 if __name__ == '__main__':
