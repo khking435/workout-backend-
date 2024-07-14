@@ -1,7 +1,11 @@
 {
     "_meta": {
         "hash": {
+<<<<<<< HEAD
             "sha256": "9e343ffc0dd3418db66a96ba281b6aa354c03b6c83e47f3c9303babb57eff942"
+=======
+            "sha256": "1fee89ddb76fb24ea5d5b52d262f481fc753048e2ec7328d7f8ad7832dea4a08"
+>>>>>>> database-models
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +20,7 @@
         ]
     },
     "default": {
+<<<<<<< HEAD
         "exceptiongroup": {
             "hashes": [
                 "sha256:5258b9ed329c5bbdd31a309f53cbfb0b155341807f6ff7606a1e801a891b29ad",
@@ -95,6 +100,16 @@
             ],
             "markers": "python_version >= '3.7'",
             "version": "==2.0.0"
+=======
+        "faker": {
+            "hashes": [
+                "sha256:0f60978314973de02c00474c2ae899785a42b2cf4f41b7987e93c132a2b8a4a9",
+                "sha256:886ee28219be96949cd21ecc96c4c742ee1680e77f687b095202c8def1a08f06"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.8'",
+            "version": "==26.0.0"
+>>>>>>> database-models
         },
         "marshmallow": {
             "hashes": [
@@ -113,6 +128,7 @@
             "markers": "python_version >= '3.8'",
             "version": "==24.1"
         },
+<<<<<<< HEAD
         "pluggy": {
             "hashes": [
                 "sha256:2cffa88e94fdc978c4c574f15f9e59b7f4201d439195c3715ca9e2486f1d0cf1",
@@ -201,6 +217,23 @@
             ],
             "markers": "python_version >= '3.8'",
             "version": "==4.12.2"
+=======
+        "python-dateutil": {
+            "hashes": [
+                "sha256:37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3",
+                "sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427"
+            ],
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "version": "==2.9.0.post0"
+        },
+        "six": {
+            "hashes": [
+                "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926",
+                "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"
+            ],
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "version": "==1.16.0"
+>>>>>>> database-models
         }
     },
     "develop": {}

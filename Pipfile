@@ -5,8 +5,12 @@ name = "pypi"
 
 [packages]
 marshmallow = "*"
+<<<<<<< HEAD
 pytest = "*"
 sqlalchemy = "*"
+=======
+faker = "*"
+>>>>>>> database-models
 
 [dev-packages]
 
