@@ -135,6 +135,35 @@ def delete_workout(workout_id):
     return jsonify({'message': 'Workout deleted successfully'}), 200
 
 
+# Routes for UserWorkouts
+
+@app.route('/userworkouts', methods=['GET'])
+def get_all_userworkouts():
+    """Route to get all userworkouts"""
+    userworkouts = UserWorkout.query.all()
+    userworkouts_list = [{'id': userworkout.id, 'user_id': userworkout.user_id, 'workout_id': userworkout.workout_id} for userworkout in userworkouts]
+    return jsonify(userworkouts_list), 200
+
+@app.route('/userworkouts/<int:userworkout_id>', methods=['GET'])
+def get_userworkout(userworkout_id):
+    """Route to get a specific userworkout by ID"""
+    userworkout = UserWorkout.query.get(userworkout_id)
+    if not userworkout:
+        return jsonify({'error': 'UserWorkout not found'}), 404
+    userworkout_data = {'id': userworkout.id, 'user_id': userworkout.user_id, 'workout_id': userworkout.workout_id}
+    return jsonify(userworkout_data), 200
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
