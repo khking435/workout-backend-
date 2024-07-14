@@ -209,5 +209,6 @@ dist/
 tmp/
 temp/
 
-.venv
-.__pycache__
+# Database files
+*.db
+*.sqlite3
