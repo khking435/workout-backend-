@@ -155,6 +155,21 @@ def get_userworkout(userworkout_id):
 
 
 
+@app.route('/userworkouts', methods=['POST'])
+def create_userworkout():
+    """Route to create a new userworkout"""
+    data = request.json
+    user_id = data.get('user_id')
+    workout_id = data.get('workout_id')
+
+    if not user_id or not workout_id:
+        return jsonify({'error': 'Missing user_id or workout_id'}), 400
+
+    new_userworkout = UserWorkout(user_id=user_id, workout_id=workout_id)
+    db.session.add(new_userworkout)
+    db.session.commit()
+
+    return jsonify({'message': 'UserWorkout created successfully'}), 201
 
 
 
