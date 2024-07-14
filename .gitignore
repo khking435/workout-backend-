@@ -209,6 +209,3 @@ dist/
 tmp/
 temp/
 
-# Database files
-*.db
-*.sqlite3
