@@ -8,6 +8,7 @@ from flask_cors import CORS
 from flask_restful import Api
 from flask_cors import CORS
 
+
 # Initializing Flask application
 app = Flask(__name__)
 
