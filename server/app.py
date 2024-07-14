@@ -83,9 +83,46 @@ def delete_user(user_id):
     db.session.commit()
     return jsonify({'message': 'User deleted successfully'}), 200
 
+
+
+# Routes for Workouts
+
+@app.route('/workouts', methods=['GET'])
+def get_all_workouts():
+    """Route to get all workouts"""
+    workouts = Workout.query.all()
+    workouts_list = [{'id': workout.id, 'name': workout.name, 'date': workout.date.strftime('%Y-%m-%d'), 'duration': workout.duration, 'type': workout.type} for workout in workouts]
+    return jsonify(workouts_list), 200
+
+@app.route('/workouts/<int:workout_id>', methods=['GET'])
+def get_workout(workout_id):
+    """Route to get a specific workout by ID"""
+    workout = Workout.query.get(workout_id)
+    if not workout:
+        return jsonify({'error': 'Workout not found'}), 404
+    workout_data = {'id': workout.id, 'name': workout.name, 'date': workout.date.strftime('%Y-%m-%d'), 'duration': workout.duration, 'type': workout.type}
+    return jsonify(workout_data), 200
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Code to print all registered routes
-with app.test_request_context():
-    print([str(rule) for rule in app.url_map.iter_rules()])
+#with app.test_request_context():
+   # print([str(rule) for rule in app.url_map.iter_rules()])
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
