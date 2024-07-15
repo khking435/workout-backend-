@@ -11,10 +11,7 @@ with app.app_context():
     db.create_all()
 
     # Generate fake users
-    users = []
-    for _ in range(10):  # Create 10 users
-        user = User(username=faker.user_name(), email=faker.email(), password=faker.password())
-        users.append(user)
+    
     
     # Print sample of generated users
     print("Sample of generated users:")
