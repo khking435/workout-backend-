@@ -2,19 +2,6 @@ from flask import Flask, jsonify, request
 from flask_migrate import Migrate
 from database_models.db import db
 from database_models.db import User
-from database_models.db import Workout
-from database_models.db import UserWorkout
-from flask_cors import CORS
-from flask_restful import Api
-from flask_cors import CORS
-
-
-# Initializing Flask application
-app = Flask(__name__)
-
-# Configuring the database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 CORS(app)
 
