@@ -2,7 +2,20 @@ import pytest
 from models import User
 from services.user_service import UserService
 
+def test_create_user(session):
+    data = {'username': 'testuser', 'email': 'testuser@example.com', 'password': 'password123'}
+    user = UserService.create_user(data)
+    assert user.id is not None
+    assert user.username == 'testuser'
 
+def test_get_user_by_id(session):
+    data = {'username': 'johndoe', 'email': 'johndoe@example.com', 'password': 'password123'}
+    user = UserService.create_user(data)
+    retrieved_user = UserService.get_user_by_id(user.id)
+    assert retrieved_user.username == 'johndoe'
+
+def test_get_all_users(session):
+    users = UserService.get_all_users()
     assert len(users) > 0
 
 def test_update_user(session):
