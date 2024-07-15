@@ -7,13 +7,7 @@ This project is a backend API for managing workout routines, built with Flask. I
 
 ## Table of Contents
 
-- [Project Description](#project-description)
-- [Features](#features)
-- [Setup](#setup)
-- [Usage](#usage)
-- [API Endpoints](#api-endpoints)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Project Description
 
