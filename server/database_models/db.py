@@ -7,11 +7,13 @@ from sqlalchemy import MetaData
 metadata = MetaData()
 
 # Create a SQLAlchemy object
-jdskjdsjsjdsk
+db = SQLAlchemy(metadata=metadata)
 
 # Define the Exercise model
 class Exercise(db.Model):
-    __tablename__ = "Exercises"  # Changed the table name
+    """Model for an exercise."""
+    # Table name
+    __tablename__ = "Exercises" 
     # Primary key column
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     # Foreign key to the Workout model
@@ -25,12 +27,11 @@ class Exercise(db.Model):
     # Weight used in the exercise
     weight = db.Column(db.Integer, nullable=False)
 
-    def __repr__(self):
-        return f"<Exercise {self.id}: {self.name}, Workout ID: {self.workout_id}>"
-
 # Define the Workout model
 class Workout(db.Model):
-    __tablename__ = "Workouts"  # Changed the table name
+    """Model for a workout."""
+    # Table name
+    __tablename__ = "Workouts" 
     # Primary key column
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     # Name of the workout
@@ -44,12 +45,11 @@ class Workout(db.Model):
     # One-to-many relationship with Exercise
     exercises = db.relationship('Exercise', backref='workout', lazy=True)
 
-    def __repr__(self):
-        return f"<Workout {self.id}: {self.name}>"
-
 # Define the User model
 class User(db.Model):
-    __tablename__ = "Users"  # Changed the table name
+    """Model for a user."""
+    # Table name
+    __tablename__ = "Users" 
     # Primary key column
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     # Username
@@ -59,12 +59,11 @@ class User(db.Model):
     # Password
     password = db.Column(db.String(80), nullable=False)
 
-    def __repr__(self):
-        return f"<User {self.id}: {self.username}>"
-
 # Define the UserWorkout model
 class UserWorkout(db.Model):
-    __tablename__ = "Userworkouts"  # Changed the table name
+    """Model for a user's workout."""
+    # Table name
+    __tablename__ = "Userworkouts" 
     # Primary key column
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     # Foreign key to the User model
@@ -72,5 +71,3 @@ class UserWorkout(db.Model):
     # Foreign key to the Workout model
     workout_id = db.Column(db.Integer, db.ForeignKey('Workouts.id'), nullable=False)
 
-    def __repr__(self):
-        return f"<UserWorkout {self.id}: User ID {self.user_id}, Workout ID {self.workout_id}>"
