@@ -12,6 +12,11 @@ from flask_cors import CORS
 # Initializing Flask application
 app = Flask(__name__)
 
+# Configuring the database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+CORS(app)
 
 # Initializing the migrate
 migrate = Migrate(app, db)

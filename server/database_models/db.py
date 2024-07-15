@@ -7,7 +7,7 @@ from sqlalchemy import MetaData
 metadata = MetaData()
 
 # Create a SQLAlchemy object
-db = SQLAlchemy(metadata=metadata)
+jdskjdsjsjdsk
 
 # Define the Exercise model
 class Exercise(db.Model):
