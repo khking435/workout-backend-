@@ -34,7 +34,7 @@ api = Api(app)
 @app.route('/')
 def index():
     """Route to welcome message"""
-    return 'Hello, Fitness World!'
+    return 'Hello, FitFusion!'
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -118,7 +118,7 @@ def delete_user(user_id):
 def get_all_exercises():
     """Route to get all exercises"""
     exercises = Exercise.query.all()
-    exercises_list = [{'id': exercise.id, 'name': exercise.name, 'description': exercise.description} for exercise in exercises]
+    exercises_list = [{'id': exercise.id, 'name': exercise.name,} for exercise in exercises]
     return jsonify(exercises_list), 200
 
 @app.route('/exercises/<int:exercise_id>', methods=['GET'])
